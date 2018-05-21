@@ -1105,7 +1105,18 @@ open class PulleyViewController: UIViewController, PulleyDrawerViewControllerDel
             completion?(true)
         }
     }
-    
+
+    /**
+     Toggle pulley visibility
+     
+     - parameter visible: hide whole pulley controller if set to false
+     */
+    public func toggleVisibility(visible: Bool, withAnimationDuration duration: Double) {
+        UIView.animate(withDuration: duration) {
+            self.drawerScrollView.alpha = visible ? 1.0 : 0.0
+        }
+    }
+
     /**
      Set the drawer position, by default the change will be animated. Deprecated. Recommend switching to the other setDrawerPosition method, this one will be removed in a future release.
      
